@@ -1,0 +1,21 @@
+<html>
+<head>
+<script type="javascript">
+    var clientId = ""; // get the client id when you register your app with microsoft
+    var redirect_uri=""; // could be a flask server or any other backend server For eg: we use flask server
+    var link = https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id="+clientId+"&response_type=code&redirect_uri="+redirect_uri+"2F&response_mode=query&scope=Calendars.Read&state=12345";
+    document.getElementById("link").href = link;
+</script>
+
+</head>
+<body>
+    <h1>
+        Sample link for getting the Access token 
+    </h1>
+    <h2>
+        Please update your access id
+    </h2>
+    <a id="link"> click here</a>
+</body>
+
+</html>
