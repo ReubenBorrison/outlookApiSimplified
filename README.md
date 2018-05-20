@@ -1,4 +1,4 @@
-# outlookApiSimplified
+# Outlook Api Simplified
 Python Wrapper around Outlook REST API 
 
 ## Installation (using docker)
