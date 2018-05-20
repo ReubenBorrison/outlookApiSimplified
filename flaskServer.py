@@ -9,6 +9,9 @@ from datetime import timedelta
 
 app = Flask(__name__)
 
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0')
+
 @app.route("/getToken/")
 @cross_origin() 
 def getToken():
@@ -28,13 +31,13 @@ def getToken():
 @app.route("/getCalData/")
 @cross_origin() 
 def getCalendarData():
-    responseContent = getToken()
+	responseContent = getToken()
 	jsonDataObj = json.loads(responseContent)
 	header={}
 	header["Authorization"] = "Bearer " + jsonDataObj["access_token"]
 	header["Prefer"] = "outlook.timezone=\"Europe/Berlin\""
 	nextDay= datetime.now() + timedelta(days=1) 
 
-    # getting required data
+	# getting required data
 	return requests.get("https://graph.microsoft.com/v1.0/me/events?$select=organizer,start,end,location",headers= header).content
-	
+
